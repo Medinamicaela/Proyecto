@@ -1,0 +1,89 @@
+<div class="hero-wrap" style="background-image: url('images/cont.jpg');" data-stellar-background-ratio="0.5">
+ {{!-- <div class="container" style=background-image:url('images/cont.jpg');> --}}
+
+    <h1 class="text-center" style="color:white; background-color:black;">Registrate para comezar</h1>
+
+    <div class="row justify-content-center">
+      
+      <div class="col-4" style="margin-top: 2em;">
+
+            <form method="POST" action="">
+
+                <div class="form-group" style="background-color: black;">
+
+                 <label for=Nombre style="color: white;">Nombre Completo<span class="text-danger">*</span></label>
+                 <input type="text" autofocus name="Nombre" id="Nombre" placeholder="Nombre Completo" required class="form-control">
+
+                </div>
+
+                <div class="form-group" style="background-color: black;">
+
+                    <label for=Correo style="color: white;">Correo<span class="text-danger">*</span></label>
+                    <input type="email" placeholder="E-mail" name="Correo" id="Correo" required class="form-control">
+
+                </div>
+
+                <div class="form-group" style="background-color: black;">
+
+                    <label for=password style="color: white;">Contraseña<span class="text-danger">*</span></label>
+                    <input type="password" placeholder="Contraseña" name="password" id="password" required class="form-control">
+
+                </div>
+
+                <div class="form-group" style="background-color: black;">
+
+                    <label for=fecha style="color: white;">Fecha de Nacimiento<span class="text-danger">*</span></label>
+                    <input type="date" name="fecha" id="fecha" class="form-control">
+
+                </div>
+
+            </form>  
+
+        </div> 
+      
+        <div class="col-4" style="margin-top: 2em;">
+          <form method="POST" action="/login">
+
+               <div class="form-group" style="background-color:black;">
+                  <label for=Telefono style="color: white;">Teléfono<span class="text-danger">*</span></label>
+                  <input type="tell"  maxlength="10" name="Telefono" id="Telefono" placeholder="Telefono" class="form-control">
+               </div>
+
+               <div class="form-group" style="background-color: black;">
+                  <label for=pais style="color: white;">País<span class="text-danger">*</span></label>
+                  <select name="pais" id="pais" required class="form-control">
+                      <option selected disabled>Selecciona tu Pais</option>\
+                      <option>Argentina</option>
+                      <option>Brasil</option>
+                      <option>Chile</option>
+                      <option>Otra</option>
+                  </select>
+               </div>
+
+                <div class="form-group" style="background-color: black;">
+
+                  <div class="form-group" style="background-color: black;">
+
+                       <div class="custom-file">
+
+                          <label for=Foto style="color: white;">Foto de perfil<span class="text-danger">*</span></label>
+                          <input type="file" name="Foto" id="Foto" class="form-control">
+                      </div>
+                 </div>
+              </div>
+
+                <div class="botones mt-5"> 
+
+                   <button type="submit" class="btn btn-light" style="border: 3px solid green; border-radius: 0.40rem;">Enviar</button>
+
+                   <button type="reset" class="btn btn-light" style="border: 3px solid red; border-radius: 0.40rem;" >Eliminar datos</button>
+
+                </div>
+
+            </form>
+    
+        </div>
+
+    </div>
+
+</div>

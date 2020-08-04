@@ -1,0 +1,30 @@
+  <body>
+    
+    <div class="hero-wrap" style="background-image: url('images/fondoc.jpg');" data-stellar-background-ratio="0.5">
+
+        <div class="row block-9 justify-content-right mb-5">
+           <div class="col-md-6 md-3">
+               <form method="POST" action="/contacto" class="bg-dark p-4 mt-5 contact-form">
+          	      <h2 class="text-center" style="color: white;">Si tienes dudas <br>no dudes en consultarnos</h2>
+                   <div class="form-group">
+                     <input type="text" class="form-control" placeholder="Nombre">
+                  </div>
+                   <div class="form-group">
+                     <input type="email" id="email" name="email" class="form-control" placeholder="Correo">
+                   </div>
+                   <div class="form-group">
+                     <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto">
+                   </div>
+                   <div class="form-group">
+                     <textarea name="mensaje" id="mensaje" cols="30" rows="5" class="form-control" placeholder="Mensaje"></textarea>
+                   </div>
+                   <h5 class="text-success text-center">{{message}}</h5>
+                   
+                    <input type="submit" value="Enviar" class="btn btn-primary btn-block py-3 px-5">
+                   
+               </form>
+           </div>
+        </div>
+    </div>
+            
+</body>
