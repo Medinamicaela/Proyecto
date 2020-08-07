@@ -13,5 +13,5 @@ const logueado = async(usuario,password)=>{
 };
 
 module.exports = {
-    logueado,
+    logueado
 };

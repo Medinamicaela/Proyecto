@@ -46,14 +46,14 @@ router.post('/alta',async(req,res) =>{
 
 router.get('/',async(req,res) =>{
     if(req.session.administrador){
-         try{
-        const productos = await getProducts();
-        // console.log(productos);
-        res.render("adminprods",{productos});
+        try{
+            const productos = await getProducts();
+            // console.log(productos);
+            res.render("adminprods",{productos});
 
-    }catch(error){
+        }catch(error){};
 
-    }
+    
     }else{
         res.send("Accion no permitida")
     }

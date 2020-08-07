@@ -13,6 +13,7 @@ const contacto = require('./routes/contacto');
 const trabajos = require('./routes/trabajos');
 const login = require('./routes/login');
 const adminProductos = require('./routes/admin/productos');
+const registro = require('./routes/registro');
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/contacto',contacto);
 app.use('/trabajos',trabajos);
 app.use('/login',login);
+app.use('/registro',registro);
 
 // Admin
 
