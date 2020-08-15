@@ -7,19 +7,26 @@
       
       <div class="col-4" style="margin-top: 5em;">
 
-            <form method="POST" action="">
+            <form method="POST" action="/registro">
 
                 <div class="form-group" style="background-color: black;">
 
-                 <label for=Nombre style="color: white;">Nombre Completo<span class="text-danger">*</span></label>
-                 <input type="text" autofocus name="Nombre" id="Nombre" placeholder="Nombre Completo" required class="form-control">
+                 <label for=Usuario style="color: white;">Usuario<span class="text-danger">*</span></label>
+                 <input type="text" autofocus name="usuario" id="usuario" placeholder="Usuario" required class="form-control">
 
                 </div>
 
                 <div class="form-group" style="background-color: black;">
 
-                    <label for=Correo style="color: white;">Correo<span class="text-danger">*</span></label>
-                    <input type="email" placeholder="E-mail" name="Correo" id="Correo" required class="form-control">
+                 <label for=nombre style="color: white;">Nombre Completo<span class="text-danger">*</span></label>
+                 <input type="text" autofocus name="nombre" id="nombre" placeholder="Nombre Completo" required class="form-control">
+
+                </div>
+
+                <div class="form-group" style="background-color: black;">
+
+                    <label for=correo style="color: white;">Correo<span class="text-danger">*</span></label>
+                    <input type="email" placeholder="E-mail" name="correo" id="correo" required class="form-control">
 
                 </div>
 
@@ -42,10 +49,17 @@
         </div> 
       
         <div class="col-4" style="margin-top: 5em;">
-          <form method="POST" action="">
+          <form method="POST" action="/registro">
+
+              <div class="form-group" style="background-color: black;">
+
+                    <label for=dni style="color: white;">D.N.I<span class="text-danger">*</span></label>
+                    <input type="text" name="dni" id="dni" class="form-control">
+
+                </div>
 
                <div class="form-group" style="background-color:black;">
-                  <label for=Telefono style="color: white;">Teléfono<span class="text-danger">*</span></label>
+                  <label for=telefono style="color: white;">Teléfono<span class="text-danger">*</span></label>
                   <input type="tell"  maxlength="10" name="Telefono" id="Telefono" placeholder="Telefono" class="form-control">
                </div>
 
@@ -66,7 +80,7 @@
 
                        <div class="custom-file">
 
-                          <label for=Foto style="color: white;">Foto de perfil<span class="text-danger">*</span></label>
+                          <label for=foto style="color: white;">Foto de perfil<span class="text-danger">*</span></label>
                           <input type="file" name="Foto" id="Foto" class="form-control">
                       </div>
                  </div>
@@ -87,3 +101,45 @@
     </div>
 
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>         
+<script>
+   
+    window.addEventListener('load', () => {
+        console.log("Cargado..")
+        document.getElementById('boton').addEventListener('click', botonApretado);
+    });
+    const botonApretado = () => {
+        const datos = new URLSearchParams(new FormData(document.getElementById('registroForm')));
+        
+        fetch('/registro', {
+            
+            method: 'POST',
+            body: datos,
+            
+        })
+            .then(response => response.json())
+            .then(data => message(data));
+    }
+    const message = (datos) => {
+        if (datos.success == true) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Ahora estas registrado,inicia sesion para continuar',
+                showConfirmButton: false,
+            })
+            window.setTimeout(function(){ 
+             window.location.href = "/login";
+            } ,2000);
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Oops...Ocurrio un error',
+                showConfirmButton: true,
+            })
+        }
+    }
+</script>

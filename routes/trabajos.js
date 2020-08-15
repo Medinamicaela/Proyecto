@@ -1,6 +1,4 @@
 const express = require('express');
-// const { getProducts } = require('../models/producto');
-// const pool = require('../utils/bd');
 const router = express.Router();
 const serviceProducts = require('./../models/producto');
 
@@ -12,7 +10,16 @@ router.get('/single/:id', async (req,res)=>{
  res.render('trabajo',{producto});
 })
 
-router.get('/all/', async (req,res)=>{
+router.get('/all', async (req,res)=>{
+    try{
+        const productos = await serviceProducts.getProducts();
+        res.render ('trabajos',{productos});
+
+    }catch(error) {
+        console.log(error)
+    };
+   
+    
 
 });
 

@@ -7,7 +7,7 @@ getProducts = async ()=> {
         const rows = await pool.query(query,[process.env.TABLA_PRODUCTO,process.env.TABLA_CATEGORIAS]);
         return rows; 
 
-    } catch (error) {
+    }catch(error) {
         console.log(error);
 
     }

@@ -22,30 +22,32 @@ router.get('/alta',async(req,res) =>{
 });
 
 router.post('/alta',async(req,res) =>{
-    try{
-        const {nombre,descripcion,id_categoria,precio,descuento} = req.body;
-        const object = {
-            nombre: nombre,
-            descripcion: descripcion,
-            id_categoria: parseInt(id_categoria),
-            precio: precio,
-            descuento: descuento,
-        };
-        const result = await create(object);
+    if(req.session.admin){
+        try{
+            const {nombre,descripcion,id_categoria,precio,descuento} = req.body;
+            const object = {
+                nombre: nombre,
+                descripcion: descripcion,
+                id_categoria: parseInt(id_categoria),
+                precio: precio,
+                descuento: descuento,
+            };
+            const result = await create(object);
 
-        res.render("altaproducto",{message : "Producto dado de alta"});
+            res.render("altaproducto",{message : "Producto dado de alta"});
 
-    }catch(error){
-        console.log(error);
-    }
-
+        }catch(error){
+            console.log(error);}
+    
+    }else{
+        res.render("Accion no permitida");
+    }      
     // console.log(req.body);
-
 });
 
 
 router.get('/',async(req,res) =>{
-    if(req.session.administrador){
+    if(req.session.admin){
         try{
             const productos = await getProducts();
             // console.log(productos);

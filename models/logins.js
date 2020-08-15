@@ -12,6 +12,21 @@ const logueado = async(usuario,password)=>{
     }
 };
 
+const create = async (obj) => {
+    try{
+     const query = "INSERT INTO ?? SET ?";
+     console.log(obj);
+     const params = [process.env.TABLA_USUARIO,obj];
+     return await pool.query(query,params);
+
+    }catch(error){
+        console.log(error)
+    }
+   
+};
+
+
 module.exports = {
-    logueado
+    logueado,
+    create,
 };
