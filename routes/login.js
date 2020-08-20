@@ -16,7 +16,7 @@ router.get('/',async(req,res) => {
 router.post('/',async(req,res,next)=>{
     var usuario = req.body.usuario;
     var password = req.body.password;
-    const resultado = await logueado(usuario,password);
+    const resultado = await logueado (usuario,password);
 
     if(resultado.length == 1){
      console.log('logueado');

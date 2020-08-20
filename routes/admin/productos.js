@@ -22,7 +22,7 @@ router.get('/alta',async(req,res) =>{
 });
 
 router.post('/alta',async(req,res) =>{
-    if(req.session.admin){
+   // if(req.session.admin){
         try{
             const {nombre,descripcion,id_categoria,precio,descuento} = req.body;
             const object = {
@@ -39,15 +39,15 @@ router.post('/alta',async(req,res) =>{
         }catch(error){
             console.log(error);}
     
-    }else{
-        res.render("Accion no permitida");
-    }      
+    //}else{
+        //res.render("Accion no permitida");
+    //}      
     // console.log(req.body);
 });
 
 
 router.get('/',async(req,res) =>{
-    if(req.session.admin){
+    //if(req.session.admin){
         try{
             const productos = await getProducts();
             // console.log(productos);
@@ -56,9 +56,9 @@ router.get('/',async(req,res) =>{
         }catch(error){};
 
     
-    }else{
-        res.send("Accion no permitida")
-    }
+    //}else{
+        //res.send("Accion no permitida")
+   //}
    
 
 });
